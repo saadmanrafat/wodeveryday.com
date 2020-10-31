@@ -7,18 +7,19 @@
       :goto-elements="$store.state.gym_navbar_goto_elements"
       :navbar-options="$store.state.gym_navbar_options"
     />
+    <info-card class="mb-3" />
     <v-row>
-      <v-col v-show="windowInnerWidth > 540">
-        <info-card class="mb-3" />
-        <reviews-card
-          :id="windowInnerWidth > 540 ? 'reviews' : ''"
-          class="mb-3"
-        />
+      <v-col style="height: 400px;">
+        <map-card class="mb-3" />
       </v-col>
-      <v-col id="keyInfo">
-        <info-card v-show="windowInnerWidth <= 540" class="mb-3" />
-        <contact-info-card class="mb-3" />
+      <v-col style="height: 400px;">
         <hours-card class="mb-3" />
+      </v-col>
+    </v-row>
+    <reviews-card :id="windowInnerWidth > 540 ? 'reviews' : ''" class="mb-3" />
+    <v-row>
+      <v-col id="keyInfo">
+        <contact-info-card class="mb-3" />
         <price-card class="mb-3" />
         <address-card class="mb-3" />
         <reviews-card
@@ -38,7 +39,6 @@
           v-if="$store.state.gym_object.name"
           id="leaderboard"
         />
-        <map-card />
       </v-col>
     </v-row>
   </div>
